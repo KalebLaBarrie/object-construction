@@ -109,7 +109,14 @@ body {
   color: #fff;
 }
 
-.btn:active {
+.btn-card {
+  display: block;
+  margin-top: 1rem;
+  margin-left: auto;
+}
+
+.btn:active,
+.btn-card:active {
   scale: 1.01;
 }
 

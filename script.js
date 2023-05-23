@@ -27,7 +27,6 @@ function addBookToLibrary(e) {
   }
 
   clearCardList();
-
   addBooksToDom();
   clearFields();
 }
@@ -51,9 +50,10 @@ function addBooksToDom() {
         </p>
         <p>Pages: ${book.pages}</p>
         <p>Has ${book.hasRead ? 'read' : 'not read'}</p>
+        <button data-book=${i} id="btn-read-status" class="btn card-btn">Change read status</button>
     `;
     card.innerHTML = cardHtml;
-    card.addEventListener('click', deleteBook);
+    card.addEventListener('click', changeBookStatus);
     container.appendChild(card);
   }
   //   console.log(container);
@@ -69,13 +69,29 @@ function clearFields() {
   ).checked = false);
 }
 
-function deleteBook(e) {
-  if (e.target.id === 'delete-button') {
-    const index = e.target.dataset.book;
-    myLibrary.splice(index, 1);
-    clearCardList();
-    addBooksToDom();
+function changeBookStatus(e) {
+  const element = e.target;
+  if (element.id === 'delete-button') {
+    deleteBook(element);
   }
+
+  if (element.id === 'btn-read-status') {
+    changeReadStatus(element);
+  }
+}
+
+function deleteBook(element) {
+  const index = element.dataset.book;
+  myLibrary.splice(index, 1);
+  clearCardList();
+  addBooksToDom();
+}
+
+function changeReadStatus(element) {
+  const index = element.dataset.book;
+  myLibrary[index].hasRead = !myLibrary[index].hasRead;
+  clearCardList();
+  addBooksToDom();
 }
 
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
