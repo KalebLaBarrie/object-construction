@@ -1,17 +1,32 @@
 let myLibrary = [];
 let button = document.getElementById('newBookBtn');
 
-function Book(title, author, pages, hasRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.hasRead = hasRead;
+// function Book(title, author, pages, hasRead) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.hasRead = hasRead;
 
-  this.info = function () {
+//   this.info = function () {
+//     return `${title} by ${author}, ${pages} pages, ${
+//       hasRead ? 'read' : 'not read yet'
+//     }`;
+//   };
+// }
+
+class Book {
+  constructor(title, author, pages, hasRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.hasRead = hasRead;
+  }
+
+  info() {
     return `${title} by ${author}, ${pages} pages, ${
       hasRead ? 'read' : 'not read yet'
     }`;
-  };
+  }
 }
 
 function addBookToLibrary(e) {
@@ -94,10 +109,10 @@ function changeReadStatus(element) {
   addBooksToDom();
 }
 
-const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
-const book2 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 500, false);
-const book3 = new Book('The Twin Towers', 'J.R.R. Tolkien', 295, false);
-const book4 = new Book('The Return of the King', 'J.R.R. Tolkien', 789, false);
+// const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
+// const book2 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 500, false);
+// const book3 = new Book('The Twin Towers', 'J.R.R. Tolkien', 295, false);
+// const book4 = new Book('The Return of the King', 'J.R.R. Tolkien', 789, false);
 
 // addBookToLibrary(book1);
 // addBookToLibrary(book2);
