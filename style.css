@@ -94,6 +94,14 @@ body {
   grid-template-columns: 100px minmax(200px, 1fr);
 }
 
+input:invalid {
+  border: solid 1px red;
+}
+
+input:valid {
+  border: solid 1px green;
+}
+
 .container h2 {
   text-align: center;
   margin-bottom: 2rem;

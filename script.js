@@ -30,7 +30,7 @@ class Book {
 }
 
 function addBookToLibrary(e) {
-  e.preventDefault();
+  // e.preventDefault();
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const pages = +document.getElementById('pages').value;
